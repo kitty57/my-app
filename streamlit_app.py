@@ -71,5 +71,5 @@ elif navigation == 'Genres and Books':
     for genre, books in genres_books.items():
         st.subheader(genre)
         for book in books:
-            st.image(f"https://www.shutterstock.com/search/book-cover%2{book}", use_column_width=True)
+            st.image(f"https://www.shutterstock.com/image-photo/calgary-alberta-june-17-2023-cover-2319366947", use_column_width=True)
             st.write(book)
