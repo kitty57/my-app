@@ -1,28 +1,43 @@
 import streamlit as st
-from langchain.llms import OpenAI
+import random
+import time
 
-st.title('My First Streamlit App')
 
-user_input = st.text_input("Enter some text")
-st.write('The user entered:', user_input)
+# Streamed response emulator
+def response_generator():
+    response = random.choice(
+        [
+            "Hello there! How can I assist you today?",
+            "Hi, human! Is there anything I can help you with?",
+            "Do you need help?",
+        ]
+    )
+    for word in response.split():
+        yield word + " "
+        time.sleep(0.05)
 
-import pandas as pd
-import numpy as np
 
-# Create a sample dataframe
-df = pd.DataFrame(np.random.randn(10, 2), columns=['A', 'B'])
+st.title("Simple chat")
 
-# Add a slider
-slider_val = st.slider('Select a range', 0, 10)
+# Initialize chat history
+if "messages" not in st.session_state:
+    st.session_state.messages = []
 
-# Filter the dataframe
-filtered_df = df[df['A'] > slider_val]
+# Display chat messages from history on app rerun
+for message in st.session_state.messages:
+    with st.chat_message(message["role"]):
+        st.markdown(message["content"])
 
-# Display the dataframe
-st.write(filtered_df)
+# Accept user input
+if prompt := st.chat_input("What is up?"):
+    # Add user message to chat history
+    st.session_state.messages.append({"role": "user", "content": prompt})
+    # Display user message in chat message container
+    with st.chat_message("user"):
+        st.markdown(prompt)
 
-chart_data = pd.DataFrame(
-    np.random.randn(20, 3),
-    columns=['a', 'b', 'c'])
-
-st.line_chart(chart_data)
+    # Display assistant response in chat message container
+    with st.chat_message("assistant"):
+        response = st.write_stream(response_generator())
+    # Add assistant response to chat history
+    st.session_state.messages.append({"role": "assistant", "content": response})
