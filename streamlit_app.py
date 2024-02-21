@@ -1,18 +1,18 @@
 import streamlit as st
-# Importing Streamlit library
 import streamlit as st
 
-# Add custom CSS for background
+# Add custom CSS for background and text styles
 st.markdown(
     """
     <style>
-        * {
-            background-color: black !important; /* Change to your preferred background color */
+        body {
+            background: linear-gradient(to bottom right, #FF0000, #000000); /* Red to black linear gradient */
+            color: #FFFFFF; /* White text color */
         }
 
         .title {
             font-size: 36px;
-            color: #4CAF50;
+            color: #4CAF50; /* Green title color */
             padding: 20px;
             text-align: center;
         }
@@ -35,9 +35,22 @@ st.markdown(
             text-align:center;
         }
 
-        .home {
-            font-size: 24px;
-            padding: 20px;
+        .genre-header {
+            background-color: #FFD700; /* Gold background color for genre headers */
+            color: #800080; /* Purple text color for genre headers */
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+
+        .book-name {
+            font-style: italic; /* Italicize book names */
+            text-align: center; /* Center-align book names */
+            color: #FF4500; /* Orange book name color */
+        }
+
+        .book-image {
+            border-radius: 10px; /* Rounded corners for book images */
         }
     </style>
     """,
@@ -45,7 +58,7 @@ st.markdown(
 )
 
 # Title of the app
-st.markdown('<p class="title">Sanjana\'s Book Cafe</p>', unsafe_allow_html=True)
+st.markdown('<p class="title">Sanjana\'s Colorful Book Cafe 🌈📚</p>', unsafe_allow_html=True)
 
 # Add a short description
 st.markdown('<p class="description">Welcome to Sanjana\'s Book Cafe! Sit back, relax, and dive into the world of books.</p>', unsafe_allow_html=True)
@@ -55,7 +68,7 @@ navigation = st.sidebar.radio('Navigation', ['Home', 'Genres and Books'])
 
 # Home page
 if navigation == 'Home':
-    st.markdown('<p class="home">This is the home page. Check out our book recommendations by genre!</p>', unsafe_allow_html=True)
+    st.markdown('<p class="description">This is the home page. Check out our book recommendations by genre!</p>', unsafe_allow_html=True)
 
 # Genres and Books page
 elif navigation == 'Genres and Books':
@@ -72,12 +85,9 @@ elif navigation == 'Genres and Books':
               'https://images.gr-assets.com/books/1292060045l/227443.jpg',
               'https://prodimage.images-bn.com/pimages/9781982172930_p0_v3_s550x406.jpg',
               'https://the-bibliofile.com/wp-content/uploads/2014/12/crazyrichasians.png']
-              
-    i=0
+    
     for genre, books in genres_books.items():
-        st.subheader(genre)
-        for book in books:
-            st.write(book)
-            st.image(book_img[i], use_column_width=True)
-            
-            i+=1
+        st.markdown(f'<p class="genre-header">{genre}</p>', unsafe_allow_html=True)
+        for book, img in zip(books, book_img):
+            st.markdown(f'<p class="book-name">{book}</p>', unsafe_allow_html=True)
+            st.image(img, use_column_width=True, caption=book)
