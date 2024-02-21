@@ -6,7 +6,7 @@ st.markdown(
     """
     <style>
         *{
-            background: linear-gradient(135deg, #09203f 10%, #537895 100%) !important;
+            background:#8da29f !important;
         }
 
         .title {
