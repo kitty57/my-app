@@ -7,7 +7,7 @@ st.markdown(
     """
     <style>
         * {
-            background-color: #f0f0f0 !important; /* Change to your preferred background color */
+            background-color: black !important; /* Change to your preferred background color */
         }
 
         .title {
@@ -32,6 +32,7 @@ st.markdown(
         .genres {
             font-size: 24px;
             padding: 20px;
+            text-align:center;
         }
 
         .home {
@@ -76,6 +77,7 @@ elif navigation == 'Genres and Books':
     for genre, books in genres_books.items():
         st.subheader(genre)
         for book in books:
-            st.image(book_img[i], use_column_width=True)
             st.write(book)
+            st.image(book_img[i], use_column_width=True)
+            
             i+=1
