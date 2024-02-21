@@ -20,3 +20,9 @@ filtered_df = df[df['A'] > slider_val]
 
 # Display the dataframe
 st.write(filtered_df)
+
+chart_data = pd.DataFrame(
+    np.random.randn(20, 3),
+    columns=['a', 'b', 'c'])
+
+st.line_chart(chart_data)
