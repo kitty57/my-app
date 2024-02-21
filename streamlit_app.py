@@ -6,11 +6,8 @@ import streamlit as st
 st.markdown(
     """
     <style>
-        body {
-            background-color: #f0f0f0; /* Change to your preferred background color */
-            /* Uncomment the line below and replace 'url' with your image path to set a background image */
-            /* background-image: url('background.jpg'); */
-            /* Optional: You can add more CSS properties to customize the background, such as background-size, background-position, etc. */
+        * {
+            background-color: #f0f0f0 !important; /* Change to your preferred background color */
         }
 
         .title {
