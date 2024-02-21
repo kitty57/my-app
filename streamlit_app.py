@@ -10,10 +10,11 @@ st.markdown(
         }
 
         .title {
-            font-size: 36px;
-            color: #4CAF50; /* Green title color */
+            font-size: 50px;
+            color: Black; /* Green title color */
             padding: 20px;
             text-align: center;
+            font-style:italic;
         }
 
         .description {
