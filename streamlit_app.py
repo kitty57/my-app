@@ -92,5 +92,5 @@ elif navigation == 'Genres and Books':
         st.markdown(f'<p class="genre-header">{genre}</p>', unsafe_allow_html=True)
         for book in books:
             st.markdown(f'<p class="book-name">{book}</p>', unsafe_allow_html=True)
-            st.image(book_img[i], width=500, caption=book, use_column_width=False, output_format='JPEG', format='JPEG')
+            st.image(book_img[i], width=500, caption=book, use_column_width=False)
             i+=1
