@@ -5,8 +5,8 @@ import streamlit as st
 st.markdown(
     """
     <style>
-        body {
-            background: linear-gradient(to bottom right, #FF0000, #000000); /* Red to black linear gradient */
+        *{
+            background: linear-gradient#F(F0000, #000000,135deg); /* Red to black linear gradient */
             color: #FFFFFF; /* White text color */
         }
 
