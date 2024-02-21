@@ -62,14 +62,20 @@ elif navigation == 'Genres and Books':
 
     # Displaying genres and recommended books with images
     genres_books = {
-        'Fantasy': ['The Night Circus', 'The Name of the Wind', 'Harry Potter'],
-        'Mystery': ['The Girl with the Dragon Tattoo', 'Gone Girl', 'The Da Vinci Code'],
-        'Science Fiction': ['Dune', 'The Martian', 'Neuromancer'],
-        'Romantic Comedy': ['Bridget Jones\'s Diary', 'The Rosie Project', 'Crazy Rich Asians']
+        'Popular Fantasies': ['The Night Circus', 'The Name of the Wind', 'Harry Potter'],
+        'Popular Romantic Comedy': ['Bridget Jones\'s Diary', 'The Rosie Project', 'Crazy Rich Asians']
     }
-    
+    book_img=['https://s.hdnux.com/photos/06/13/40/1619968/3/1200x0.jpg',
+              'https://m.media-amazon.com/images/S/aplus-media/vc/972d3fab-4906-452c-8e9a-5771fb23a3b6.jpg',
+              'https://images.thenile.io/r1000/9780747554561.jpg',
+              'https://images.gr-assets.com/books/1292060045l/227443.jpg',
+              'https://prodimage.images-bn.com/pimages/9781982172930_p0_v3_s550x406.jpg',
+              'https://the-bibliofile.com/wp-content/uploads/2014/12/crazyrichasians.png']
+              
+    i=0
     for genre, books in genres_books.items():
         st.subheader(genre)
         for book in books:
-            st.image("https://images.thenile.io/r1000/9780747554561.jpg", use_column_width=True)
+            st.image(book_img[i], use_column_width=True)
             st.write(book)
+            i+=1
