@@ -84,9 +84,10 @@ elif navigation == 'Genres and Books':
               'https://images.gr-assets.com/books/1292060045l/227443.jpg',
               'https://prodimage.images-bn.com/pimages/9781982172930_p0_v3_s550x406.jpg',
               'https://the-bibliofile.com/wp-content/uploads/2014/12/crazyrichasians.png']
-    
+    i=0
     for genre, books in genres_books.items():
         st.markdown(f'<p class="genre-header">{genre}</p>', unsafe_allow_html=True)
-        for book, img in zip(books, book_img):
+        for book in books:
             st.markdown(f'<p class="book-name">{book}</p>', unsafe_allow_html=True)
-            st.image(img, width=500, caption=book)
+            st.image(book_img[i], width=500, caption=book)
+            i+=1
